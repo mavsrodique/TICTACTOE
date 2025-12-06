@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tic Tac Toe — Play vs AI or Human</title>
+  <link rel="stylesheet" href="tictactoe.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <main class="ttt-wrapper">
+    <header class="ttt-header">
+      <h1>Tic Tac Toe</h1>
+      <div class="controls">
+        <label><input type="radio" name="mode" value="pvp" checked> Two players</label>
+        <label><input type="radio" name="mode" value="ai"> Play vs AI</label>
+        <label class="small"><input type="checkbox" id="ai-first"> AI goes first</label>
+        <button id="reset" class="btn">Restart</button>
+      </div>
+    </header>
+
+    <section class="game">
+      <div class="board" role="grid" aria-label="Tic Tac Toe board">
+        <!-- 9 cells -->
+        <button class="cell" data-index="0"></button>
+        <button class="cell" data-index="1"></button>
+        <button class="cell" data-index="2"></button>
+        <button class="cell" data-index="3"></button>
+        <button class="cell" data-index="4"></button>
+        <button class="cell" data-index="5"></button>
+        <button class="cell" data-index="6"></button>
+        <button class="cell" data-index="7"></button>
+        <button class="cell" data-index="8"></button>
+      </div>
+      <div class="status">
+        <div id="message">X's turn</div>
+      </div>
+    </section>
+
+    <footer class="ttt-footer">
+      <small>Built with jQuery — AI uses minimax (unbeatable).</small>
+    </footer>
+  </main>
+
+  <script src="tictactoe.js"></script>
+</body>
+</html>

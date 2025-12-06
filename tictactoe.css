@@ -1,0 +1,33 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --accent:#3b82f6;
+  --muted:rgba(255,255,255,0.72);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,#071020,#0f1724);color:#fff;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+.ttt-wrapper{width:100%;max-width:720px}
+.ttt-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.ttt-header h1{font-size:20px;margin:0}
+.controls{display:flex;gap:10px;align-items:center}
+.controls label{font-size:14px;color:var(--muted)}
+.controls .small{font-size:13px;color:var(--muted)}
+.btn{background:var(--accent);border:none;color:#021025;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+.game{display:flex;flex-direction:column;gap:14px}
+.board{display:grid;grid-template-columns:repeat(3,120px);grid-template-rows:repeat(3,120px);gap:12px;justify-content:center;padding:18px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+.cell{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);color:#fff;font-size:42px;font-weight:700;border-radius:12px;cursor:pointer;transition:transform .12s ease,background .12s ease;display:flex;align-items:center;justify-content:center}
+.cell:hover{transform:translateY(-4px)}
+.cell.disabled{cursor:default;opacity:0.9}
+.status{display:flex;justify-content:center}
+#message{padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted)}
+.ttt-footer{margin-top:12px;text-align:center;color:var(--muted);font-size:13px}
+
+@media (max-width:520px){
+  .board{grid-template-columns:repeat(3,90px);grid-template-rows:repeat(3,90px);gap:10px}
+  .cell{font-size:34px}
+}
+
+.win-highlight{background:linear-gradient(90deg, rgba(59,130,246,0.12), rgba(99,102,241,0.08));box-shadow:0 8px 24px rgba(59,130,246,0.08)}
+
+.fade-in{animation:fadeIn .28s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}

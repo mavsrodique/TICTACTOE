@@ -43,6 +43,10 @@ $(function(){
       result.combo.forEach(i => $cells.filter(`[data-index="${i}"]`).addClass('win-highlight'));
     }
     render();
+   
+  const AUTO_RESTART_MS = 600;
+    const timerId = setTimeout(() => { $reset.click(); }, AUTO_RESTART_MS);
+    $reset.data('autoTimer', timerId);
   }
 
   function humanTurn(i){
@@ -134,6 +138,12 @@ $(function(){
   });
 
   $reset.on('click', function(){
+    // clear any pending auto-restart timer to avoid double resets
+    const existing = $reset.data('autoTimer');
+    if(existing){
+      clearTimeout(existing);
+      $reset.removeData('autoTimer');
+    }
     board = Array(9).fill(null);
     current = 'X';
     gameOver = false;
